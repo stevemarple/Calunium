@@ -99,25 +99,27 @@ bool Stream::findUntil(char *target, size_t targetLen, char *terminator, size_t 
   size_t index = 0;  // maximum target string length is 64k bytes!
   size_t termIndex = 0;
   int c;
-
+  
   if( *target == 0)
-     return true;   // return true if target is a null string
+    return true;   // return true if target is a null string
   while( (c = timedRead()) > 0){
+    
+    if(c != target[index])
+      index = 0; // reset index if any char does not match
+    
     if( c == target[index]){
-    //////Serial.print("found "); Serial.write(c); Serial.print("index now"); Serial.println(index+1);
+      //////Serial.print("found "); Serial.write(c); Serial.print("index now"); Serial.println(index+1);
       if(++index >= targetLen){ // return true if all chars in the target match
         return true;
       }
     }
-    else{
-      index = 0;  // reset index if any char does not match
-    }
+    
     if(termLen > 0 && c == terminator[termIndex]){
-       if(++termIndex >= termLen)
-         return false;       // return false if terminate string found before target string
+      if(++termIndex >= termLen)
+        return false;       // return false if terminate string found before target string
     }
     else
-        termIndex = 0;
+      termIndex = 0;
   }
   return false;
 }
@@ -208,11 +210,20 @@ float Stream::parseFloat(char skipChar){
 }
 
 // read characters from stream into buffer
-// terminates if length characters have been read, null is detected or timeout (see setTimeout)
-// returns the number of characters placed in the buffer (0 means no valid data found)
-int Stream::readBytes( char *buffer, size_t length)
+// terminates if length characters have been read, or timeout (see setTimeout)
+// returns the number of characters placed in the buffer
+// the buffer is NOT null terminated.
+//
+size_t Stream::readBytes(char *buffer, size_t length)
 {
-   return readBytesUntil( 0, buffer, length);
+  size_t count = 0;
+  while (count < length) {
+    int c = timedRead();
+    if (c < 0) break;
+    *buffer++ = (char)c;
+    count++;
+  }
+  return count;
 }
 
 
@@ -220,24 +231,16 @@ int Stream::readBytes( char *buffer, size_t length)
 // terminates if length characters have been read, timeout, or if the terminator character  detected
 // returns the number of characters placed in the buffer (0 means no valid data found)
 
-int Stream::readBytesUntil( char terminator, char *buffer, size_t length)
+size_t Stream::readBytesUntil(char terminator, char *buffer, size_t length)
 {
-    unsigned int index = 0;
-    *buffer = 0;
-    while(index < length-1 ){
-      int c = timedRead();
-      if( c <= 0 ){
-        return 0;   // timeout returns 0 !
-      }
-      else if( c == terminator){
-        buffer[index] = 0; // terminate the string
-        return index;               // data got successfully
-      }
-      else{
-        buffer[index++] = (char)c;
-      }
-    }
-    buffer[index] = 0;
-    return index; // here if buffer is full before detecting the terminator
+  if (length < 1) return 0;
+  size_t index = 0;
+  while (index < length) {
+    int c = timedRead();
+    if (c < 0 || c == terminator) break;
+    *buffer++ = (char)c;
+    index++;
+  }
+  return index; // return number of characters, not including null terminator
 }
 
