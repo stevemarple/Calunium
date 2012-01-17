@@ -23,11 +23,6 @@
 #include <Wire.h>
 #include <RealTimeClockDS1307.h>
 
-#define NO_PORTA_PINCHANGES
-#define NO_PORTB_PINCHANGES
-#define NO_PORTD_PINCHANGES
-#define DISABLE_PCINT_MULTI_SERVICE
-
 // The pin number used for the real-time clock
 #define RTC_INPUT 15
 
@@ -35,7 +30,8 @@
 // interrupts is therefore not needed.
 volatile uint8_t pinChanged = false;
 
-// Only one ISR needs to be defined, but which is it?
+// Only one ISR needs to be defined, but which is it? Use the pin
+// mapping macros to define the appropriate one.
 #if digitalPinToPCICRbit(RTC_INPUT) == 0
 ISR(PCINT0_vect){
   pinChanged = true;
