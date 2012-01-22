@@ -28,7 +28,7 @@
 #include <avr/pgmspace.h>
 
 #define CALUNIUM
-#define CALUNIUM_VARIANT PCB
+#define CALUNIUM_VARIANT pcb
 
 #define NUM_DIGITAL_PINS 32
 #define NUM_ANALOG_INPUTS 8
