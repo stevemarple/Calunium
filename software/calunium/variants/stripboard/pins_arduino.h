@@ -27,6 +27,9 @@
 
 #include <avr/pgmspace.h>
 
+#define CALUNIUM
+#define CALUNIUM_VARIANT stripboard
+
 const static uint8_t SS   = 10;
 const static uint8_t MOSI = 11;
 const static uint8_t MISO = 12;
