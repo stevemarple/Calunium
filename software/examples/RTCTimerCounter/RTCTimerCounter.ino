@@ -1,19 +1,18 @@
 /*
- * RTCTimerCounter2.ino
+ * RTCTimerCounter.ino
  * Author: Steve Marple
  * License: Gnu General Public License version 2 
  *
  * Example sketch to demonstrate the real-time clock outputting a 1Hz
  * square wave which is used as an input by timer/counter2 on the
  * ATmega1284P. An interrupt service routine is called when
- * timer/counter2 has reached its top value; the ISR sets isrRan
- * to true. Every run of loop() checks if the isrRan is true; if
- * so it is set to false and the current time is printed to the
- * console. The state of D13 is also toggled, to flash the on-board
- * LED.
+ * timer/counter2 has reached its top value; the ISR sets isrRan to
+ * true. Every run of loop() checks if the isrRan is true; if so it is
+ * set to false and the current time is printed to the console. The
+ * state of LED_BUILTIN is also toggled, to flash the on-board LED.
  *
  * To run this sketch on a standard Arduino (ATmega168 or ATmega328)
- * you will need to use timer/counter 1; define USE_CT to be 1. Use D5
+ * you will need to use timer/counter1; define USE_CT to be 1. Use D5
  * for the input. Using timer/counter2 might be possible if your
  * ATmega328 uses the internal oscillator and the crystal is not
  * fitted.
