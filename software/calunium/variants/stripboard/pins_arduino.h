@@ -1,135 +1,127 @@
-/*
-  pins_arduino.h - Pin definition functions for Arduino
-  Part of Arduino - http://www.arduino.cc/
-
-  Copyright (c) 2007 David A. Mellis
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General
-  Public License along with this library; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place, Suite 330,
-  Boston, MA  02111-1307  USA
-
-  $Id: wiring.h 249 2007-02-03 16:52:51Z mellis $
-*/
-
 #ifndef Pins_Arduino_h
 #define Pins_Arduino_h
 
 #include <avr/pgmspace.h>
 
-#define CALUNIUM
-#define CALUNIUM_VARIANT stripboard
+// ATMEL ATMEGA1284P on Calunium, stripboard version
+//
+//                       +---\/---+
+//           (D 4) PB0 1 |        | 40 PA0 (D 25) AI 1
+//           (D 5) PB1 2 |        | 39 PA1 (D 24) AI 0
+//      INT2 (D 6) PB2 3 |        | 38 PA2 (D 26) AI 2
+//       PWM (D 7) PB3 4 |        | 37 PA3 (D 27) AI 3
+//   PWM/SS (D 10) PB4 5 |        | 36 PA4 (D 28) AI 4
+//     MOSI (D 11) PB5 6 |        | 35 PA5 (D 29) AI 5
+// PWM/MISO (D 12) PB6 7 |        | 34 PA6 (D 30) AI 6
+//  PWM/SCK (D 13) PB7 8 |        | 33 PA7 (D 31) AI 7
+//                 RST 9 |        | 32 AREF
+//                VCC 10 |        | 31 GND 
+//                GND 11 |        | 30 AVCC
+//              XTAL2 12 |        | 29 PC7 (D 14) 
+//              XTAL1 13 |        | 28 PC6 (D 15) 
+//      RX0 (D 0) PD0 14 |        | 27 PC5 (D 16) TDI
+//      TX0 (D 1) PD1 15 |        | 26 PC4 (D 17) TDO
+// INT0 RX1 (D 2) PD2 16 |        | 25 PC3 (D 18) TMS
+// INT1 TX1 (D 3) PD3 17 |        | 24 PC2 (D 19) TCK
+//     PWM (D 22) PD4 18 |        | 23 PC1 (D 20) SDA
+//      PWM (D 9) PD5 19 |        | 22 PC0 (D 21) SCL
+//      PWM (D 8) PD6 20 |        | 21 PD7 (D 23) PWM
+//                       +--------+
+//
 
-const static uint8_t SS   = 10;
-const static uint8_t MOSI = 11;
-const static uint8_t MISO = 12;
-const static uint8_t SCK  = 13;
+#define NUM_DIGITAL_PINS            32
+#define NUM_ANALOG_INPUTS           8
+#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? 24 + (p) : -1)
 
-const static uint8_t SDA = 20;
-const static uint8_t SCL = 21;
-const static uint8_t LED_BUILTIN = 13;
+extern const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS];
+extern const uint16_t __pcmsk[];
+extern const uint8_t digital_pin_to_timer_PGM[NUM_DIGITAL_PINS];
 
-const static uint8_t A0 = 24;
-const static uint8_t A1 = 25;
-const static uint8_t A2 = 26;
-const static uint8_t A3 = 27;
-const static uint8_t A4 = 28;
-const static uint8_t A5 = 29;
-const static uint8_t A6 = 30;
-const static uint8_t A7 = 31;
+#define ifpin(p,what,ifnot)	    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
+#define digitalPinHasPWM(p)         ifpin(p,pgm_read_byte(digital_pin_to_timer_PGM + (p)) != NOT_ON_TIMER,1==0)
 
-/* Digital pin to PCINT
- * 0	24
- * 1	25
- * 2	26
- * 3	27
- * 4	8
- * 5	9
- * 6	10
- * 7	11
- * 8	30
- * 9	29
- * 10	12
- * 11	13
- * 12	14
- * 13	15
- * 14	23
- * 15	22
- * 16	21
- * 17	20
- * 18	19
- * 19	18
- * 20	17
- * 21	16
- * 22	28
- * 23	31
- * 24	1
- * 25	0
- * 26	2
- * 27	3
- * 28	4
- * 29	5
- * 30	6
- * 31	7
- */
+#define digitalPinToAnalogPin(p)    ( (p) >= 24 && (p) <= 31 ? (p) - 24 : -1 )
+#define analogPinToChannel(p)	    ( (p) < NUM_ANALOG_INPUTS ? ( (p) < 2 ? 1 - (p) : (p) ) : -1 )   
 
-#define digitalPinToPCIR(p) (((p) >= 0 && (p) <= 31) ? (&PCICR) : ((uint8_t *)0))
-#define digitalPinToPCICRbit(p) \
-  (((p) >= 24 && (p) <= 31) ? 0 :					\
-   (((p) >= 4 && (p) <= 7) || ((p) >= 10 && (p) <= 13)) ? 1 :		\
-   ((p) >= 14 && (p) <= 21) ? 2 : 3)
-#define digitalPinToPCMSK(p) \
-  (((p) >= 24 && (p) <= 31) ? &PCMSK0 :			      \
-   (((p) >= 4 && (p) <= 7) || ((p) >= 10 && (p) <= 13)) ? &PCMSK1 : \
-   ((p) >= 14 && (p) <= 21) ? &PCMSK2 : \
-   (((p) >= 0 && (p) <= 3) || (p) == 8 || (p) == 9 || (p) == 22 || (p) == 23) ? &PCMSK3 : ((uint8_t *)0))
-#define digitalPinToPCMSKbit(p)			\
-  (((p) == 0) ? 0 :				\
-   ((p) == 1) ? 1 :				\
-   ((p) == 2) ? 2 :				\
-   ((p) == 3) ? 3 :				\
-   ((p) == 4) ? 0 :				\
-   ((p) == 5) ? 1 :				\
-   ((p) == 6) ? 2 :				\
-   ((p) == 7) ? 3 :				\
-   ((p) == 8) ? 6 :				\
-   ((p) == 9) ? 5 :				\
-   ((p) == 10) ? 4 :				\
-   ((p) == 11) ? 5 :				\
-   ((p) == 12) ? 6 :				\
-   ((p) == 13) ? 7 :				\
-   ((p) == 14) ? 7 :				\
-   ((p) == 15) ? 6 :				\
-   ((p) == 16) ? 5 :				\
-   ((p) == 17) ? 4 :				\
-   ((p) == 18) ? 3 :				\
-   ((p) == 19) ? 2 :				\
-   ((p) == 20) ? 1 :				\
-   ((p) == 21) ? 0 :				\
-   ((p) == 22) ? 4 :				\
-   ((p) == 23) ? 7 :				\
-   ((p) == 24) ? 1 :				\
-   ((p) == 25) ? 0 :				\
-   ((p) == 26) ? 2 :				\
-   ((p) == 27) ? 3 :				\
-   ((p) == 28) ? 4 :				\
-   ((p) == 29) ? 5 :				\
-   ((p) == 30) ? 6 :				\
-   ((p) == 31) ? 7 : 0)
+static const uint8_t SS   = 10;
+static const uint8_t MOSI = 11;
+static const uint8_t MISO = 12;
+static const uint8_t SCK  = 13;
+
+static const uint8_t SDA = 20;
+static const uint8_t SCL = 21;
+static const uint8_t LED = 13;
+
+static const uint8_t A0 = 24;
+static const uint8_t A1 = 25;
+static const uint8_t A2 = 26;
+static const uint8_t A3 = 27;
+static const uint8_t A4 = 28;
+static const uint8_t A5 = 29;
+static const uint8_t A6 = 30;
+static const uint8_t A7 = 31;
+
+#define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
+#define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,(uint8_t *)0)
+#define digitalPinToPCMSK(p)    ifpin(p,__pcmsk[digital_pin_to_pcint[]],(uint8_t *)0)
+#define digitalPinToPCMSKbit(p) ifpin(p,digital_pin_to_pcint[p] & 0x7,(uint8_t *)0)
 
 #ifdef ARDUINO_MAIN
 
-const uint16_t PROGMEM port_to_mode_PGM[] = {
+#define PA 1
+#define PB 2
+#define PC 3
+#define PD 4
+
+const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
+{
+  24, // D0 PD0
+  25, // D1 PD1
+  26, // D2 PD2
+  27, // D3 PD3
+  8,  // D4 PB0
+  9,  // D5 PB1
+  10, // D6 PB2
+  11, // D7 PB3
+  30, // D8 PD6
+  29, // D9 PD5
+  12, // D10 PB4
+  13, // D11 PB5
+  14, // D12 PB6
+  15, // D13 PB7
+  23, // D14 PC7
+  22, // D15 PC6
+  21, // D16 PC5
+  20, // D17 PC4
+  19, // D18 PC3
+  18, // D19 PC2
+  17, // D20 PC1
+  16, // D21 PC0
+  28, // D22 PD4
+  31, // D23 PD7
+  1,  // D24 PA1
+  0,  // D25 PA0
+  2,  // D26 PA2
+  3,  // D27 PA3
+  4,  // D28 PA4
+  5,  // D29 PA5
+  6,  // D30 PA6
+  7,  // D31 PA7
+};
+
+const uint16_t __pcmsk[] = 
+{
+  (uint16_t)&PCMSK0, 
+  (uint16_t)&PCMSK1, 
+  (uint16_t)&PCMSK2, 
+  (uint16_t)&PCMSK3
+};
+
+// these arrays map port names (e.g. port B) to the
+// appropriate addresses for various functions (e.g. reading
+// and writing)
+const uint16_t PROGMEM port_to_mode_PGM[] =
+{
 	NOT_A_PORT,
 	(uint16_t) &DDRA,
 	(uint16_t) &DDRB,
@@ -137,7 +129,8 @@ const uint16_t PROGMEM port_to_mode_PGM[] = {
 	(uint16_t) &DDRD,
 };
 
-const uint16_t PROGMEM port_to_output_PGM[] = {
+const uint16_t PROGMEM port_to_output_PGM[] =
+{
 	NOT_A_PORT,
 	(uint16_t) &PORTA,
 	(uint16_t) &PORTB,
@@ -145,138 +138,124 @@ const uint16_t PROGMEM port_to_output_PGM[] = {
 	(uint16_t) &PORTD,
 };
 
-const uint16_t PROGMEM port_to_input_PGM[] = {
-	NOT_A_PIN,
+const uint16_t PROGMEM port_to_input_PGM[] =
+{
+	NOT_A_PORT,
 	(uint16_t) &PINA,
 	(uint16_t) &PINB,
 	(uint16_t) &PINC,
 	(uint16_t) &PIND,
 };
 
-const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
-	// PORTLIST		
-	// -------------------------------------------		
-	PD	, //  0, PD0 (PCINT24/RXD0/T3)
-	PD	, //  1, PD1 (PCINT25/TXD0)
-	PD	, //  2, PD2 (PCINT26/RXD1/INT0)
-	PD	, //  3, PD3 (PCINT27/TXD1/INT1)
-	PB      , //  4, PB0 (PCINT8/XCK0/T0)
-	PB      , //  5, PB1 (PCINT9/CLKO/T1)
-	PB      , //  6, PB2 (PCINT10/INT2/AIN0)
-	PB      , //  7, PB3 (PCINT11/OC0A/AIN1)
-
-	PD      , //  8, PD6 (PCINT30/OC2B/ICP)
-	PD      , //  9, PD5 (PCINT29/OC1A)
-	PB      , // 10, PB4 (PCINT12/OC0B/!SS)
-	PB      , // 11, PB5 (PCINT13/ICP3/MOSI)
-	PB      , // 12, PB6 (PCINT14/OC3A/MISO)
-	PB      , // 13, PB7 (PCINT15/OC3B/SCK)
-	// Reminder are provisonal. This mapping makes SDA/SCL have
-	// same digital numbers as for Mega2560
-	PC      , // 14, PC7 (TOSC2/PCINT23)
-	PC      , // 15, PC6 (TOSC1/PCINT22)
-
-	PC      , // PC5 (TDI/PCINT21)
-	PC      , // PC4 (TDO/PCINT20)
-	PC      , // PC3 (TMS/PCINT19)
-	PC      , // PC2 (TCK/PCINT18) 
-	PC      , // PC1 (SDA/PCINT17) [D20]
-	PC      , // PC0 (SCL/PCINT16) [D21]
-	PD      , // PD4 (PCINT28/XCK1/OC1B)
-	PD      , // PD7 (OC2A/PCINT31)
-
-	PA,
-	PA,
-	PA,
-	PA,
-	PA,
-	PA,
-	PA,
-	PA,
+const uint8_t PROGMEM digital_pin_to_port_PGM[NUM_DIGITAL_PINS] =
+{
+  PD, // D0
+  PD, // D1
+  PD, // D2
+  PD, // D3
+  PB, // D4
+  PB, // D5
+  PB, // D6
+  PB, // D7
+  PD, // D8
+  PD, // D9
+  PB, // D10
+  PB, // D11
+  PB, // D12
+  PB, // D13
+  PC, // D14
+  PC, // D15
+  PC, // D16
+  PC, // D17
+  PC, // D18
+  PC, // D19
+  PC, // D20
+  PC, // D21
+  PD, // D22
+  PD, // D23
+  PA, // D24
+  PA, // D25
+  PA, // D26
+  PA, // D27
+  PA, // D28
+  PA, // D29
+  PA, // D30
+  PA, // D31
 };
 
-const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
-	// PIN IN PORT		
-	// -------------------------------------------		
-        _BV( 0 )        , // PD0 (PCINT24/RXD0/T3)
-	_BV( 1 )        , // PD1 (PCINT25/TXD0)
-	_BV( 2 )        , // PD2 (PCINT26/RXD1/INT0)
-	_BV( 3 )        , // PD3 (PCINT27/TXD1/INT1)
-	_BV( 0 )        , // PB0 (PCINT8/XCK0/T0)
-	_BV( 1 )        , // PB1 (PCINT9/CLKO/T1)
-	_BV( 2 )        , // PB2 (PCINT10/INT2/AIN0)
-	_BV( 3 )        , // PB3 (PCINT11/OC0A/AIN1)
-
-	_BV( 6 )        , // PD6 (PCINT30/OC2B/ICP)
-	_BV( 5 )        , // PD5 (PCINT29/OC1A)
-	_BV( 4 )        , // PB4 (PCINT12/OC0B/!SS)
-	_BV( 5 )        , // PB5 (PCINT13/ICP3/MOSI)
-	_BV( 6 )        , // PB6 (PCINT14/OC3A/MISO)
-	_BV( 7 )        , // PB7 (PCINT15/OC3B/SCK)
-	_BV( 7 )        , // PC7 (TOSC2/PCINT23)
-	_BV( 6 )        , // PC6 (TOSC1/PCINT22)
-
-	_BV( 5 )        , // PC5 (TDI/PCINT21)
-	_BV( 4 )        , // PC4 (TDO/PCINT20)
-	_BV( 3 )        , // PC3 (TMS/PCINT19)
-	_BV( 2 )        , // PC2 (TCK/PCINT18) 
-	_BV( 1 )        , // PC1 (SDA/PCINT17) [D20]
-	_BV( 0 )        , // PC0 (SCL/PCINT16) [D21]
-	_BV( 4 )        , // PD4 (PCINT28/XCK1/OC1B)
-	_BV( 7 )        , // PD7 (OC2A/PCINT31)
-
-	_BV ( 1 )       , // PA1 (ADC1/PCINT1)
-	_BV ( 0 )       , // PA0 (ADC0/PCINT0)
-	_BV ( 2 )       , // PA2 (ADC2/PCINT2)
-	_BV ( 3 )       , // PA3 (ADC3/PCINT3)
-	_BV ( 4 )       , // PA4 (ADC4/PCINT4)
-	_BV ( 5 )       , // PA5 (ADC5/PCINT5)
-	_BV ( 6 )       , // PA6 (ADC6/PCINT6)
-	_BV ( 7 )       , // PA7 (ADC7/PCINT7)
+const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[NUM_DIGITAL_PINS] =
+{
+  _BV(0), // D0 PD0
+  _BV(1), // D1 PD1
+  _BV(2), // D2 PD2
+  _BV(3), // D3 PD3
+  _BV(0), // D4 PB0
+  _BV(1), // D5 PB1
+  _BV(2), // D6 PB2
+  _BV(3), // D7 PB3
+  _BV(6), // D8 PD6
+  _BV(5), // D9 PD5
+  _BV(4), // D10 PB4
+  _BV(5), // D11 PB5
+  _BV(6), // D12 PB6
+  _BV(7), // D13 PB7
+  _BV(7), // D14 PC7
+  _BV(6), // D15 PC6
+  _BV(5), // D16 PC5
+  _BV(4), // D17 PC4
+  _BV(3), // D18 PC3
+  _BV(2), // D19 PC2
+  _BV(1), // D20 PC1
+  _BV(0), // D21 PC0
+  _BV(4), // D22 PD4
+  _BV(7), // D23 PD7
+  _BV(1), // D24 PA1
+  _BV(0), // D25 PA0
+  _BV(2), // D26 PA2
+  _BV(3), // D27 PA3
+  _BV(4), // D28 PA4
+  _BV(5), // D29 PA5
+  _BV(6), // D30 PA6
+  _BV(7), // D31 PA7
 };
 
-const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
-	// TIMERS		
-	// -------------------------------------------		
-	NOT_ON_TIMER, 	/* D0  - PD0 */
-	NOT_ON_TIMER, 	/* D1  - PD1 */
-	NOT_ON_TIMER, 	/* D2  - PD2 */
-	NOT_ON_TIMER, 	/* D3  - PD3 */
-	NOT_ON_TIMER, 	/* D4  - PB0 */
-	NOT_ON_TIMER, 	/* D5  - PB1 */
-	NOT_ON_TIMER, 	/* D6  - PB2 */
-	TIMER0A,     	/* D7  - PB3 */
-
-	TIMER2B,     	/* D8  - PD6 */
-	TIMER1A,     	/* D9  - PD5 */
-	TIMER0B,	/* D10 - PB4 */
-	NOT_ON_TIMER, 	/* D11 - PB5 */
-	TIMER3A, // NOT_ON_TIMER, 	/* D12 - PB6 */
-	TIMER3B, // NOT_ON_TIMER,	/* D13 - PB7 */
-	//  *** The remaining mappings are provisional  ***
-	NOT_ON_TIMER,   /* D  - PC7 */
-	NOT_ON_TIMER,   /* D  - PC6 */
-
-	NOT_ON_TIMER,   /* D  - PC5 */
-	NOT_ON_TIMER,   /* D  - PC4 */
-	NOT_ON_TIMER,   /* D  - PC3 */
-	NOT_ON_TIMER,   /* D  - PC2 */
-	NOT_ON_TIMER,   /* D  - PC1 */
-	NOT_ON_TIMER, 	/* D  - PC0 */
-	TIMER1B,     	/* D  - PD4 */
-	TIMER2A,     	/* D  - PD7 */
-	
-	NOT_ON_TIMER,   /* D  - PA1 */
-	NOT_ON_TIMER,   /* D  - PA0 */
-	NOT_ON_TIMER,   /* D  - PA2 */
-	NOT_ON_TIMER,   /* D  - PA3 */
-	NOT_ON_TIMER,   /* D  - PA4 */
-	NOT_ON_TIMER,   /* D  - PA5 */
-	NOT_ON_TIMER,   /* D  - PA6 */
-	NOT_ON_TIMER,   /* D  - PA7 */
-
+const uint8_t PROGMEM digital_pin_to_timer_PGM[NUM_DIGITAL_PINS] =
+{
+  NOT_ON_TIMER, // D0 PD0
+  NOT_ON_TIMER, // D1 PD1
+  NOT_ON_TIMER, // D2 PD2
+  NOT_ON_TIMER, // D3 PD3
+  NOT_ON_TIMER, // D4 PB0
+  NOT_ON_TIMER, // D5 PB1
+  NOT_ON_TIMER, // D6 PB2
+  TIMER0A,      // D7 PB3
+  TIMER2B,      // D8 PD6
+  TIMER1A,      // D9 PD5
+  TIMER0B,      // D10 PB4
+  NOT_ON_TIMER, // D11 PB5
+  TIMER3A,      // D12 PB6
+  TIMER3B,      // D13 PB7
+  NOT_ON_TIMER, // D14 PC7
+  NOT_ON_TIMER, // D15 PC6
+  NOT_ON_TIMER, // D16 PC5
+  NOT_ON_TIMER, // D17 PC4
+  NOT_ON_TIMER, // D18 PC3
+  NOT_ON_TIMER, // D19 PC2
+  NOT_ON_TIMER, // D20 PC1
+  NOT_ON_TIMER, // D21 PC0
+  TIMER1B,      // D22 PD4
+  TIMER2A,      // D23 PD7
+  NOT_ON_TIMER, // D24 PA1
+  NOT_ON_TIMER, // D25 PA0
+  NOT_ON_TIMER, // D26 PA2
+  NOT_ON_TIMER, // D27 PA3
+  NOT_ON_TIMER, // D28 PA4
+  NOT_ON_TIMER, // D29 PA5
+  NOT_ON_TIMER, // D30 PA6
+  NOT_ON_TIMER, // D31 PA7
 };
 
-#endif
+#endif // ARDUINO_MAIN
 
-#endif
+#endif // Pins_Arduino_h
+// vim:ai:cin:sts=2 sw=2 ft=cpp
