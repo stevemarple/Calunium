@@ -3,6 +3,10 @@
 
 #include <avr/pgmspace.h>
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 // ATMEL ATMEGA1284P on Calunium, PCB version
 //
 //                       +---\/---+
@@ -259,6 +263,11 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[NUM_DIGITAL_PINS] =
 };
 
 #endif // ARDUINO_MAIN
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 
 #endif // Pins_Arduino_h
 // vim:ai:cin:sts=2 sw=2 ft=cpp
