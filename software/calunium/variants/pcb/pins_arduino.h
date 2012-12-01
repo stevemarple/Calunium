@@ -3,10 +3,6 @@
 
 #include <avr/pgmspace.h>
 
-#ifdef __cplusplus
-extern "C"{
-#endif
-
 // ATMEL ATMEGA1284P on Calunium, PCB version
 //
 //                       +---\/---+
@@ -40,9 +36,15 @@ extern "C"{
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? 24 + (p) : -1)
 
+#ifdef __cplusplus
+extern "C"{
+#endif
 extern const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS];
 extern const uint16_t __pcmsk[];
 extern const uint8_t digital_pin_to_timer_PGM[NUM_DIGITAL_PINS];
+#ifdef __cplusplus
+}
+#endif
 
 #define ifpin(p,what,ifnot)	    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 #define digitalPinHasPWM(p)         ifpin(p,pgm_read_byte(digital_pin_to_timer_PGM + (p)) != NOT_ON_TIMER,1==0)
@@ -57,7 +59,7 @@ static const uint8_t SCK  = 13;
 
 static const uint8_t SDA = 20;
 static const uint8_t SCL = 21;
-static const uint8_t LED = 13;
+static const uint8_t LED_BUILTIN = 13;
 
 static const uint8_t A0 = 24;
 static const uint8_t A1 = 25;
@@ -263,11 +265,6 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[NUM_DIGITAL_PINS] =
 };
 
 #endif // ARDUINO_MAIN
-
-#ifdef __cplusplus
-} // extern "C"
-#endif
-
 
 #endif // Pins_Arduino_h
 // vim:ai:cin:sts=2 sw=2 ft=cpp
