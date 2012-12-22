@@ -95,6 +95,22 @@ cal1284p_xboot_12.build.f_cpu=12000000L
 cal1284p_xboot_12.build.core=arduino
 cal1284p_xboot_12.build.variant=pcb
 
+cal1284p_xboot_16.name=Calunium 1284P (PCB, 16MHz, XBoot, 115200 baud)
+cal1284p_xboot_16.upload.protocol=avr109
+cal1284p_xboot_16.upload.maximum_size=126976
+cal1284p_xboot_16.upload.speed=115200
+cal1284p_xboot_16.bootloader.low_fuses=0xFF
+cal1284p_xboot_16.bootloader.high_fuses=0x92
+cal1284p_xboot_16.bootloader.extended_fuses=0xFF
+cal1284p_xboot_16.bootloader.path=optiboot
+cal1284p_xboot_16.bootloader.file=optiboot_atmega1284p_12MHz.hex
+cal1284p_xboot_16.bootloader.unlock_bits=0x3F
+cal1284p_xboot_16.bootloader.lock_bits=0x0F
+cal1284p_xboot_16.build.mcu=atmega1284p
+cal1284p_xboot_16.build.f_cpu=16000000L
+cal1284p_xboot_16.build.core=arduino
+cal1284p_xboot_16.build.variant=pcb
+
 cal1284p_16.name=Calunium 1284P (PCB, 16MHz)
 cal1284p_16.upload.protocol=stk500v1
 cal1284p_16.upload.maximum_size=129024
