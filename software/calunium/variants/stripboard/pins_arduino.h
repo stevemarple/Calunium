@@ -57,7 +57,7 @@ static const uint8_t SCK  = 13;
 
 static const uint8_t SDA = 20;
 static const uint8_t SCL = 21;
-static const uint8_t LED = 13;
+static const uint8_t LED_BUILTIN = 13;
 
 static const uint8_t A0 = 24;
 static const uint8_t A1 = 25;
@@ -69,9 +69,9 @@ static const uint8_t A6 = 30;
 static const uint8_t A7 = 31;
 
 #define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
-#define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,(uint8_t *)0)
-#define digitalPinToPCMSK(p)    ifpin(p,__pcmsk[digital_pin_to_pcint[]],(uint8_t *)0)
-#define digitalPinToPCMSKbit(p) ifpin(p,digital_pin_to_pcint[p] & 0x7,(uint8_t *)0)
+#define digitalPinToPCICRbit(p) ifpin(p, digital_pin_to_pcint[p] >> 3, 0)
+#define digitalPinToPCMSK(p)    ifpin(p,(uint16_t *)__pcmsk[digital_pin_to_pcint[p]],(uint16_t *)0)
+#define digitalPinToPCMSKbit(p) ifpin(p, digital_pin_to_pcint[p] & 0x7, 0)
 
 #ifdef ARDUINO_MAIN
 
