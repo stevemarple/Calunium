@@ -12,7 +12,7 @@ cal644p_strip_16.bootloader.unlock_bits=0x3F
 cal644p_strip_16.bootloader.lock_bits=0x0F
 cal644p_strip_16.build.mcu=atmega644p
 cal644p_strip_16.build.f_cpu=16000000L
-cal644p_strip_16.build.core=arduino:arduino
+cal644p_strip_16.build.core=arduino
 cal644p_strip_16.build.variant=stripboard
 
 # cal1284p_12.name=Calunium 1284P (12MHz)
@@ -28,7 +28,7 @@ cal644p_strip_16.build.variant=stripboard
 # cal1284p_12.bootloader.lock_bits=0x0F
 # cal1284p_12.build.mcu=atmega1284p
 # cal1284p_12.build.f_cpu=12000000L
-# cal1284p_12.build.core=arduino:arduino
+# cal1284p_12.build.core=arduino
 # cal1284p_12.build.variant=pcb
 
 # cal1284p_16.name=Calunium 1284P (PCB, 16MHz)
@@ -44,7 +44,7 @@ cal644p_strip_16.build.variant=stripboard
 # cal1284p_16.bootloader.lock_bits=0x0F
 # cal1284p_16.build.mcu=atmega1284p
 # cal1284p_16.build.f_cpu=16000000L
-# cal1284p_16.build.core=arduino:arduino
+# cal1284p_16.build.core=arduino
 # cal1284p_16.build.variant=pcb
 
 # cal1284p_opti_12_9600.name=Calunium 1284P (PCB, 12MHz, optiboot, 9600 baud)
@@ -60,7 +60,7 @@ cal644p_strip_16.build.variant=stripboard
 # cal1284p_opti_12_9600.bootloader.lock_bits=0x0F
 # cal1284p_opti_12_9600.build.mcu=atmega1284p
 # cal1284p_opti_12_9600.build.f_cpu=12000000L
-# cal1284p_opti_12_9600.build.core=arduino:arduino
+# cal1284p_opti_12_9600.build.core=arduino
 # cal1284p_opti_12_9600.build.variant=pcb
 
 # cal1284p_opti_12.name=Calunium 1284P (PCB, 12MHz, optiboot)
@@ -76,7 +76,7 @@ cal644p_strip_16.build.variant=stripboard
 # cal1284p_opti_12.bootloader.lock_bits=0x0F
 # cal1284p_opti_12.build.mcu=atmega1284p
 # cal1284p_opti_12.build.f_cpu=12000000L
-# cal1284p_opti_12.build.core=arduino:arduino
+# cal1284p_opti_12.build.core=arduino
 # cal1284p_opti_12.build.variant=pcb
 
 # cal1284p_opti_16.name=Calunium 1284P (PCB, 16MHz, optiboot)
@@ -92,7 +92,7 @@ cal644p_strip_16.build.variant=stripboard
 # cal1284p_opti_16.bootloader.lock_bits=0x0F
 # cal1284p_opti_16.build.mcu=atmega1284p
 # cal1284p_opti_16.build.f_cpu=16000000L
-# cal1284p_opti_16.build.core=arduino:arduino
+# cal1284p_opti_16.build.core=arduino
 # cal1284p_opti_16.build.variant=pcb
 
 cal1284p_xboot_8RC.name=Calunium 1284P (8MHz int RC, XBoot, 38400 baud)
@@ -108,7 +108,7 @@ cal1284p_xboot_8RC.bootloader.unlock_bits=0x3F
 cal1284p_xboot_8RC.bootloader.lock_bits=0x0F
 cal1284p_xboot_8RC.build.mcu=atmega1284p
 cal1284p_xboot_8RC.build.f_cpu=8000000L
-cal1284p_xboot_8RC.build.core=arduino:arduino
+cal1284p_xboot_8RC.build.core=arduino
 cal1284p_xboot_8RC.build.variant=pcb
 
 cal1284p_xboot_8.name=Calunium 1284P (8MHz, XBoot, 38400 baud)
@@ -124,7 +124,7 @@ cal1284p_xboot_8.bootloader.unlock_bits=0x3F
 cal1284p_xboot_8.bootloader.lock_bits=0x0F
 cal1284p_xboot_8.build.mcu=atmega1284p
 cal1284p_xboot_8.build.f_cpu=8000000L
-cal1284p_xboot_8.build.core=arduino:arduino
+cal1284p_xboot_8.build.core=arduino
 cal1284p_xboot_8.build.variant=pcb
 
 cal1284p_xboot_12.name=Calunium 1284P (12MHz, XBoot, 115200 baud)
@@ -140,7 +140,7 @@ cal1284p_xboot_12.bootloader.unlock_bits=0x3F
 cal1284p_xboot_12.bootloader.lock_bits=0x0F
 cal1284p_xboot_12.build.mcu=atmega1284p
 cal1284p_xboot_12.build.f_cpu=12000000L
-cal1284p_xboot_12.build.core=arduino:arduino
+cal1284p_xboot_12.build.core=arduino
 cal1284p_xboot_12.build.variant=pcb
 
 cal1284p_xboot_16.name=Calunium 1284P (16MHz, XBoot, 115200 baud)
@@ -156,6 +156,6 @@ cal1284p_xboot_16.bootloader.unlock_bits=0x3F
 cal1284p_xboot_16.bootloader.lock_bits=0x0F
 cal1284p_xboot_16.build.mcu=atmega1284p
 cal1284p_xboot_16.build.f_cpu=16000000L
-cal1284p_xboot_16.build.core=arduino:arduino
+cal1284p_xboot_16.build.core=arduino
 cal1284p_xboot_16.build.variant=pcb
 
