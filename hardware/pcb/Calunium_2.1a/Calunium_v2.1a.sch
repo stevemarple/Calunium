@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -7131,8 +7131,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <instance part="JP3" gate="G$1" x="-7.62" y="132.08"/>
 <instance part="R6" gate="G$1" x="-149.86" y="68.58" rot="R90"/>
 <instance part="SENS1" gate="G$1" x="157.48" y="27.94" rot="MR0"/>
-<instance part="JP7" gate="A" x="-144.78" y="-25.4"/>
-<instance part="C12" gate="G$1" x="-132.08" y="-30.48" rot="R90"/>
+<instance part="JP7" gate="A" x="-142.24" y="-25.4"/>
+<instance part="C12" gate="G$1" x="-129.54" y="-30.48" rot="R90"/>
 <instance part="R3" gate="G$1" x="170.18" y="78.74" rot="R90"/>
 <instance part="R4" gate="G$1" x="177.8" y="78.74" rot="R90"/>
 <instance part="R5" gate="G$1" x="185.42" y="78.74" rot="R90"/>
@@ -7283,8 +7283,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <pinref part="U1" gate="G$1" pin="!RESET@1"/>
 </segment>
 <segment>
-<wire x1="-129.54" y1="-30.48" x2="-127" y2="-30.48" width="0.1524" layer="91"/>
-<label x="-124.46" y="-30.48" size="1.778" layer="95"/>
+<wire x1="-127" y1="-30.48" x2="-124.46" y2="-30.48" width="0.1524" layer="91"/>
+<label x="-121.92" y="-30.48" size="1.778" layer="95"/>
 <pinref part="C12" gate="G$1" pin="2"/>
 </segment>
 <segment>
@@ -8039,8 +8039,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <pinref part="IC4" gate="G$1" pin="PCINT25/TXD0_PD1"/>
 </segment>
 <segment>
-<wire x1="-144.78" y1="-38.1" x2="-139.7" y2="-38.1" width="0.1524" layer="91"/>
-<label x="-137.16" y="-38.1" size="1.778" layer="95"/>
+<wire x1="-144.78" y1="-38.1" x2="-137.16" y2="-38.1" width="0.1524" layer="91"/>
+<label x="-134.62" y="-38.1" size="1.778" layer="95"/>
 <pinref part="X5" gate="G$1" pin="RXI"/>
 </segment>
 <segment>
@@ -8078,8 +8078,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <pinref part="U1" gate="G$1" pin="0(RX0)"/>
 </segment>
 <segment>
-<wire x1="-144.78" y1="-40.64" x2="-139.7" y2="-40.64" width="0.1524" layer="91"/>
-<label x="-137.16" y="-40.64" size="1.778" layer="95"/>
+<wire x1="-144.78" y1="-40.64" x2="-137.16" y2="-40.64" width="0.1524" layer="91"/>
+<label x="-134.62" y="-40.64" size="1.778" layer="95"/>
 <pinref part="X5" gate="G$1" pin="TXO"/>
 </segment>
 <segment>
@@ -8327,23 +8327,15 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <pinref part="IC4" gate="G$1" pin="PCINT31/OC2A_PD7"/>
 </segment>
 </net>
-<net name="N$15" class="0">
-<segment>
-<wire x1="-144.78" y1="-35.56" x2="-144.78" y2="-27.94" width="0.1524" layer="91"/>
-<pinref part="X5" gate="G$1" pin="DTR"/>
-<pinref part="JP7" gate="A" pin="1"/>
-</segment>
-</net>
 <net name="AUTO_RESET" class="0">
 <segment>
-<wire x1="-142.24" y1="-27.94" x2="-142.24" y2="-30.48" width="0.1524" layer="91"/>
-<pinref part="JP7" gate="A" pin="2"/>
-<pinref part="C12" gate="G$1" pin="1"/>
-<junction x="-142.24" y="-30.48"/>
-<wire x1="-142.24" y1="-30.48" x2="-137.16" y2="-30.48" width="0.1524" layer="91"/>
-<wire x1="-142.24" y1="-30.48" x2="-142.24" y2="-35.56" width="0.1524" layer="91"/>
-<wire x1="-142.24" y1="-35.56" x2="-139.7" y2="-35.56" width="0.1524" layer="91"/>
-<label x="-137.16" y="-35.56" size="1.778" layer="95"/>
+<label x="-134.62" y="-35.56" size="1.778" layer="95"/>
+<wire x1="-144.78" y1="-35.56" x2="-142.24" y2="-35.56" width="0.1524" layer="91"/>
+<wire x1="-142.24" y1="-35.56" x2="-142.24" y2="-27.94" width="0.1524" layer="91"/>
+<pinref part="X5" gate="G$1" pin="DTR"/>
+<pinref part="JP7" gate="A" pin="1"/>
+<junction x="-142.24" y="-35.56"/>
+<wire x1="-142.24" y1="-35.56" x2="-137.16" y2="-35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC5" gate="G$1" pin="!RTS"/>
@@ -8621,6 +8613,14 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <wire x1="-91.44" y1="-38.1" x2="-91.44" y2="0" width="0.1524" layer="91"/>
 <pinref part="X3" gate="G$1" pin="VBUS"/>
 <wire x1="-91.44" y1="0" x2="-99.06" y2="0" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="C12" gate="G$1" pin="1"/>
+<pinref part="JP7" gate="A" pin="2"/>
+<wire x1="-139.7" y1="-27.94" x2="-139.7" y2="-30.48" width="0.1524" layer="91"/>
+<wire x1="-139.7" y1="-30.48" x2="-134.62" y2="-30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
