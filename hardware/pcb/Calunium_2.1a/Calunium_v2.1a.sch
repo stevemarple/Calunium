@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -7074,6 +7074,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <part name="C18" library="SparkFun" deviceset="CAP" device="PTH" value="15p"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
+<part name="R10" library="SteveMarple" deviceset="RESISTOR" device="" value="1M"/>
+<part name="GND31" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7116,12 +7118,12 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <instance part="FRAME1" gate="G$1" x="-172.72" y="-76.2"/>
 <instance part="X3" gate="G$1" x="-101.6" y="-2.54" smashed="yes" rot="MR0"/>
 <instance part="X5" gate="G$1" x="-149.86" y="-40.64" rot="MR180"/>
-<instance part="Q1" gate="G$1" x="185.42" y="124.46"/>
+<instance part="Q1" gate="G$1" x="185.42" y="132.08"/>
 <instance part="U1" gate="G$1" x="48.26" y="106.68"/>
 <instance part="IC2" gate="G$1" x="142.24" y="66.04"/>
-<instance part="LED1" gate="G$1" x="185.42" y="134.62"/>
+<instance part="LED1" gate="G$1" x="185.42" y="142.24"/>
 <instance part="LED2" gate="G$1" x="137.16" y="124.46"/>
-<instance part="R1" gate="G$1" x="185.42" y="142.24" rot="R90"/>
+<instance part="R1" gate="G$1" x="185.42" y="149.86" rot="R90"/>
 <instance part="Y1" gate="G$1" x="114.3" y="86.36" smashed="yes" rot="R180">
 <attribute name="NAME" x="111.76" y="92.456" size="1.778" layer="95"/>
 <attribute name="VALUE" x="111.76" y="88.9" size="1.778" layer="96"/>
@@ -7175,7 +7177,7 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <instance part="H2" gate="G$1" x="106.68" y="-53.34"/>
 <instance part="H4" gate="G$1" x="106.68" y="-63.5"/>
 <instance part="GND2" gate="1" x="88.9" y="-60.96"/>
-<instance part="P+7" gate="VCC" x="185.42" y="149.86"/>
+<instance part="P+7" gate="VCC" x="185.42" y="157.48"/>
 <instance part="P+10" gate="VCC" x="137.16" y="139.7"/>
 <instance part="GND4" gate="1" x="137.16" y="116.84"/>
 <instance part="C6" gate="G$1" x="-58.42" y="43.18"/>
@@ -7247,6 +7249,8 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <instance part="C18" gate="G$1" x="109.22" y="78.74"/>
 <instance part="GND29" gate="1" x="119.38" y="73.66"/>
 <instance part="GND30" gate="1" x="109.22" y="73.66"/>
+<instance part="R10" gate="G$1" x="172.72" y="124.46" rot="R90"/>
+<instance part="GND31" gate="1" x="172.72" y="116.84"/>
 </instances>
 <busses>
 </busses>
@@ -7307,6 +7311,7 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="185.42" y1="127" x2="185.42" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="27.94" y1="76.2" x2="25.4" y2="76.2" width="0.1524" layer="91"/>
@@ -7521,6 +7526,10 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 <pinref part="C18" gate="G$1" pin="2"/>
 <pinref part="GND30" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="GND31" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="VCC" class="1">
 <segment>
@@ -7706,8 +7715,11 @@ Source: http://www.atmel.com/dyn/resources/prod_documents/doc2593.pdf</descripti
 </segment>
 <segment>
 <pinref part="Q1" gate="G$1" pin="G"/>
-<wire x1="180.34" y1="121.92" x2="167.64" y2="121.92" width="0.1524" layer="91"/>
-<label x="165.1" y="121.92" size="1.778" layer="95" rot="MR0"/>
+<wire x1="180.34" y1="129.54" x2="172.72" y2="129.54" width="0.1524" layer="91"/>
+<label x="165.1" y="129.54" size="1.778" layer="95" rot="MR0"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="172.72" y1="129.54" x2="167.64" y2="129.54" width="0.1524" layer="91"/>
+<junction x="172.72" y="129.54"/>
 </segment>
 <segment>
 <wire x1="162.56" y1="-17.78" x2="154.94" y2="-17.78" width="0.1524" layer="91"/>
