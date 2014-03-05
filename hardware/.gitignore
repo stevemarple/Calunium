@@ -1,0 +1,11 @@
+# Ignore Eagle backup files
+*.[bs]#[0-9]
+
+# Ignore unwanted Gerber file output
+*.GBP
+*.GML
+*.GTP
+*.do
+*.dri
+*.gpi
+*.pro
