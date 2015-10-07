@@ -1,0 +1,4 @@
+[submodule "hardware/lbr/SteveMarple-Eagle-Library"]
+	path = hardware/lbr/SteveMarple-Eagle-Library
+	url = https://github.com/stevemarple/SteveMarple-Eagle-Library.git
+ 	pushurl = git@github.com:stevemarple/SteveMarple-Eagle-Library.git
