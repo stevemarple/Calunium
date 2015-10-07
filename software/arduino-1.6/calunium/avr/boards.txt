@@ -1,0 +1,167 @@
+# Calunium PCB and stripboard versions. Default configuration is
+# ATmega1284P and xboot. ATmega1284 (non-P version) can be supported
+# as ATmega1284P when bootloader has been installed (requires -F
+# option or correct signature setting)
+#
+#
+# For more information please see
+# http://blog.stevemarple.co.uk/search/label/Calunium
+#
+# Hardware and software pository at
+# https://github.com/stevemarple/Calunium
+
+
+# Support different speed versions. Support RC oscillator with a
+# separate entry since that requires different fuse settings.
+menu.speed=Speed
+menu.variant=Variant
+menu.cpu=CPU
+
+# ############################################################
+# calunium_stripboard.name=Calunium (stripboard)
+# calunium_stripboard.build.mcu=atmega644p
+# calunium_stripboard.build.f_cpu=16000000L
+# calunium_stripboard.build.core=arduino:arduino
+# calunium_stripboard.build.variant=stripboard
+# calunium_stripboard.build.board=AVR_CALUNIUM
+# calunium_stripboard.upload.protocol=avr109
+# calunium_stripboard.upload.maximum_size=57344
+# calunium_stripboard.upload.speed=38400
+# calunium_stripboard.upload.tool=arduino:avrdude
+# calunium_stripboard.bootloader.low_fuses=0xFF
+# calunium_stripboard.bootloader.high_fuses=0x98
+# calunium_stripboard.bootloader.extended_fuses=0xFD
+# calunium_stripboard.bootloader.path=standard
+# calunium_stripboard.bootloader.file=atmega644p_16MHz.hex
+# calunium_stripboard.bootloader.unlock_bits=0x3F
+# calunium_stripboard.bootloader.lock_bits=0x0F
+
+############################################################
+calunium_atmega1284p.name=Calunium 1284(P) with Xboot
+calunium_atmega1284p.build.board=AVR_CALUNIUM
+calunium_atmega1284p.build.mcu=atmega1284p
+calunium_atmega1284p.build.core=arduino:arduino
+calunium_atmega1284p.build.variant=pcb
+calunium_atmega1284p.upload.protocol=avr109
+calunium_atmega1284p.upload.maximum_size=126976
+calunium_atmega1284p.upload.speed=115200
+calunium_atmega1284p.upload.tool=arduino:avrdude
+calunium_atmega1284p.bootloader.low_fuses=0xFF
+calunium_atmega1284p.bootloader.high_fuses=0x92
+calunium_atmega1284p.bootloader.extended_fuses=0xFD
+calunium_atmega1284p.bootloader.path=xboot
+calunium_atmega1284p.bootloader.unlock_bits=0x3F
+calunium_atmega1284p.bootloader.lock_bits=0x0F
+
+# ----- Speed -----
+# 8MHz RC oscillator
+calunium_atmega1284p.menu.speed.eightrc=8MHz (RC osc. 38400 baud upload)
+calunium_atmega1284p.menu.speed.eightrc.build.f_cpu=8000000L
+calunium_atmega1284p.menu.speed.eightrc.bootloader.file=1284p_8MHz_RC.hex
+calunium_atmega1284p.menu.speed.eightrc.bootloader.low_fuses=0xC2
+calunium_atmega1284p.menu.speed.eightrc.bootloader.high_fuses=0x92
+calunium_atmega1284p.menu.speed.eightrc.bootloader.extended_fuses=0xFD
+calunium_atmega1284p.menu.speed.eightrc.upload.speed=38400
+
+# 8MHz crystal
+calunium_atmega1284p.menu.speed.eight=8MHz (38400 baud upload)
+calunium_atmega1284p.menu.speed.eight.build.f_cpu=8000000L
+calunium_atmega1284p.menu.speed.eight.bootloader.file=1284p_8MHz.hex
+calunium_atmega1284p.menu.speed.eight.upload.speed=38400
+
+# 12MHz crystal
+calunium_atmega1284p.menu.speed.twelve=12MHz (115200 baud upload)
+calunium_atmega1284p.menu.speed.twelve.build.f_cpu=12000000L
+calunium_atmega1284p.menu.speed.twelve.bootloader.file=1284p_12MHz.hex
+
+# 16MHz crystal
+calunium_atmega1284p.menu.speed.sixteen=16MHz (115200 baud upload)
+calunium_atmega1284p.menu.speed.sixteen.build.f_cpu=16000000L
+calunium_atmega1284p.menu.speed.sixteen.bootloader.file=1284p_16MHz.hex
+
+# ----- CPU -----
+# ATmega1284P
+calunium_atmega1284p.menu.cpu.atmega1284p=ATmega1284P
+calunium_atmega1284p.menu.cpu.atmega1284p.build.mcu=atmega1284p
+
+# ATmega1284 (non P)
+# Similar enough that the same bootloader image can be used.
+calunium_atmega1284p.menu.cpu.atmega1284=ATmega1284 (non P)
+calunium_atmega1284p.menu.cpu.atmega1284.build.mcu=atmega1284
+
+# ----- Variant -----
+# PCB variant
+calunium_atmega1284p.menu.variant.pcb=PCB
+calunium_atmega1284p.menu.variant.pcb.build.variant=pcb
+
+# Stripboard variant
+calunium_atmega1284p.menu.variant.stripboard=Stripboard
+calunium_atmega1284p.menu.variant.pcb.build.variant=stripboard
+
+
+############################################################
+calunium_atmega644p.name=Calunium 644(P) with Xboot
+calunium_atmega644p.build.board=AVR_CALUNIUM
+#calunium_atmega644p.build.mcu=atmega644p
+calunium_atmega644p.build.core=arduino:arduino
+calunium_atmega644p.build.variant=pcb
+calunium_atmega644p.upload.protocol=avr109
+calunium_atmega644p.upload.maximum_size=61440
+calunium_atmega644p.upload.speed=115200
+calunium_atmega644p.upload.tool=arduino:avrdude
+calunium_atmega644p.bootloader.low_fuses=0xFF
+calunium_atmega644p.bootloader.high_fuses=0x92
+calunium_atmega644p.bootloader.extended_fuses=0xFD
+calunium_atmega644p.bootloader.path=xboot
+calunium_atmega644p.bootloader.unlock_bits=0x3F
+calunium_atmega644p.bootloader.lock_bits=0x0F
+
+# ----- Speed -----
+# 8MHz RC oscillator
+calunium_atmega644p.menu.speed.eightrc=8MHz (RC osc. 38400 baud upload)
+calunium_atmega644p.menu.speed.eightrc.build.f_cpu=8000000L
+# calunium_atmega644p.menu.speed.eightrc.bootloader.file=644p_8MHz_RC.hex
+calunium_atmega644p.menu.speed.eightrc.bootloader.file={build.mcu}_8MHz_RC.hex
+calunium_atmega644p.menu.speed.eightrc.bootloader.low_fuses=0xC2
+calunium_atmega644p.menu.speed.eightrc.bootloader.high_fuses=0x92
+calunium_atmega644p.menu.speed.eightrc.bootloader.extended_fuses=0xFD
+calunium_atmega644p.menu.speed.eightrc.upload.speed=38400
+
+# 8MHz crystal
+calunium_atmega644p.menu.speed.eight=8MHz (38400 baud upload)
+calunium_atmega644p.menu.speed.eight.build.f_cpu=8000000L
+# calunium_atmega644p.menu.speed.eight.bootloader.file=644p_8MHz.hex
+calunium_atmega644p.menu.speed.eight.bootloader.file={build.mcu}_8MHz.hex
+calunium_atmega644p.menu.speed.eight.upload.speed=38400
+
+# 12MHz crystal
+calunium_atmega644p.menu.speed.twelve=12MHz (115200 baud upload)
+calunium_atmega644p.menu.speed.twelve.build.f_cpu=12000000L
+# calunium_atmega644p.menu.speed.twelve.bootloader.file=644p_12MHz.hex
+calunium_atmega644p.menu.speed.twelve.bootloader.file={build.mcu}_12MHz.hex
+
+# 16MHz crystal
+calunium_atmega644p.menu.speed.sixteen=16MHz (115200 baud upload)
+calunium_atmega644p.menu.speed.sixteen.build.f_cpu=16000000L
+# calunium_atmega644p.menu.speed.sixteen.bootloader.file=644p_16MHz.hex
+calunium_atmega644p.menu.speed.sixteen.bootloader.file={build.mcu}_16MHz.hex
+
+# ----- CPU -----
+# ATmega644P
+calunium_atmega644p.menu.cpu.atmega644p=ATmega644P
+calunium_atmega644p.menu.cpu.atmega644p.build.mcu=atmega644p
+
+# ATmega644 (non P)
+# Similar enough that the same bootloader image can be used.
+calunium_atmega644p.menu.cpu.atmega644=ATmega644 (non P)
+calunium_atmega644p.menu.cpu.atmega644.build.mcu=atmega644
+
+# ----- Variant -----
+# PCB variant
+calunium_atmega644p.menu.variant.pcb=PCB
+calunium_atmega644p.menu.variant.pcb.build.variant=pcb
+
+# Stripboard variant
+calunium_atmega644p.menu.variant.stripboard=Stripboard
+calunium_atmega644p.menu.variant.stripboard.build.variant=stripboard
+

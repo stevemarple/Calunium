@@ -1,0 +1,8 @@
+dragonisp.name=AVR Dragon (ISP)
+dragonisp.communication=usb
+dragonisp.protocol=dragon_isp
+
+dragonjtag.name=AVR Dragon (JTAG)
+dragonjtag.communication=usb
+dragonjtag.protocol=dragon_jtag
+
