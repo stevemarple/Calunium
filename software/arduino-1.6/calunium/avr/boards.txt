@@ -59,9 +59,9 @@ calunium_atmega1284p.menu.speed.sixteen.build.f_cpu=16000000L
 calunium_atmega1284p.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega1284P_16MHz.hex
 
 # 20MHz crystal
-calunium_atmega1284p.menu.speed.sixteen=20MHz (115200 baud upload)
-calunium_atmega1284p.menu.speed.sixteen.build.f_cpu=20000000L
-calunium_atmega1284p.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega1284P_20MHz.hex
+calunium_atmega1284p.menu.speed.twenty=20MHz (115200 baud upload)
+calunium_atmega1284p.menu.speed.twenty.build.f_cpu=20000000L
+calunium_atmega1284p.menu.speed.twenty.bootloader.file=xboot/calunium_ATmega1284P_20MHz.hex
 
 # ----- Variant -----
 # PCB variant
@@ -115,9 +115,9 @@ calunium_atmega1284.menu.speed.sixteen.build.f_cpu=16000000L
 calunium_atmega1284.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega1284_16MHz.hex
 
 # 20MHz crystal
-calunium_atmega1284.menu.speed.sixteen=16MHz (115200 baud upload)
-calunium_atmega1284.menu.speed.sixteen.build.f_cpu=20000000L
-calunium_atmega1284.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega1284_20MHz.hex
+calunium_atmega1284.menu.speed.twenty=20MHz (115200 baud upload)
+calunium_atmega1284.menu.speed.twenty.build.f_cpu=20000000L
+calunium_atmega1284.menu.speed.twenty.bootloader.file=xboot/calunium_ATmega1284_20MHz.hex
 
 # ----- Variant -----
 # PCB variant
@@ -172,9 +172,9 @@ calunium_atmega644p.menu.speed.sixteen.build.f_cpu=16000000L
 calunium_atmega644p.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega644P_16MHz.hex
 
 # 20MHz crystal
-calunium_atmega644p.menu.speed.sixteen=20MHz (115200 baud upload)
-calunium_atmega644p.menu.speed.sixteen.build.f_cpu=16000000L
-calunium_atmega644p.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega644P_20MHz.hex
+calunium_atmega644p.menu.speed.twenty=20MHz (115200 baud upload)
+calunium_atmega644p.menu.speed.twenty.build.f_cpu=20000000L
+calunium_atmega644p.menu.speed.twenty.bootloader.file=xboot/calunium_ATmega644P_20MHz.hex
 
 # ----- Variant -----
 # PCB variant
