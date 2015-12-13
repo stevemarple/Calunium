@@ -71,7 +71,7 @@ calunium_atmega1284p.menu.variant.pcb.build.variant=pcb
 
 # Stripboard variant
 calunium_atmega1284p.menu.variant.stripboard=Stripboard
-calunium_atmega1284p.menu.variant.pcb.build.variant=stripboard
+calunium_atmega1284p.menu.variant.stripboard.build.variant=stripboard
 
 ############################################################
 calunium_atmega1284.name=Calunium ATmega1284 (non-P) with Xboot
@@ -128,7 +128,7 @@ calunium_atmega1284.menu.variant.pcb.build.variant=pcb
 
 # Stripboard variant
 calunium_atmega1284.menu.variant.stripboard=Stripboard
-calunium_atmega1284.menu.variant.pcb.build.variant=stripboard
+calunium_atmega1284.menu.variant.stripboard.build.variant=stripboard
 
 
 ############################################################
