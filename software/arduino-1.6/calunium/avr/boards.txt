@@ -15,6 +15,7 @@
 # separate entry since that requires different fuse settings.
 menu.speed=Speed
 menu.variant=Variant
+menu.sketchinclude=Custom sketch include
 
 ############################################################
 calunium_atmega1284p.name=Calunium ATmega1284P with Xboot
@@ -73,6 +74,13 @@ calunium_atmega1284p.menu.variant.pcb.build.variant=pcb
 calunium_atmega1284p.menu.variant.stripboard=Stripboard
 calunium_atmega1284p.menu.variant.stripboard.build.variant=stripboard
 
+## ----- Custom sketch include -----
+calunium_atmega1284p.menu.sketchinclude.none=None
+
+calunium_atmega1284p.menu.sketchinclude.custominclude=custom_include.h
+calunium_atmega1284p.menu.sketchinclude.custominclude.compiler.c.extra_flags=-include {build.source.path}/custom_include.h
+calunium_atmega1284p.menu.sketchinclude.custominclude.compiler.cpp.extra_flags=-include {build.source.path}/custom_include.h
+
 ############################################################
 calunium_atmega1284.name=Calunium ATmega1284 (non-P) with Xboot
 calunium_atmega1284.build.board=AVR_CALUNIUM
@@ -130,6 +138,12 @@ calunium_atmega1284.menu.variant.pcb.build.variant=pcb
 calunium_atmega1284.menu.variant.stripboard=Stripboard
 calunium_atmega1284.menu.variant.stripboard.build.variant=stripboard
 
+## ----- Custom sketch include -----
+calunium_atmega1284.menu.sketchinclude.none=None
+
+calunium_atmega1284.menu.sketchinclude.custominclude=custom_include.h
+calunium_atmega1284.menu.sketchinclude.custominclude.compiler.c.extra_flags=-include {build.source.path}/custom_include.h
+calunium_atmega1284.menu.sketchinclude.custominclude.compiler.cpp.extra_flags=-include {build.source.path}/custom_include.h
 
 ############################################################
 calunium_atmega644p.name=Calunium ATmega644P with Xboot
@@ -188,3 +202,9 @@ calunium_atmega644p.menu.variant.pcb.build.variant=pcb
 calunium_atmega644p.menu.variant.stripboard=Stripboard
 calunium_atmega644p.menu.variant.stripboard.build.variant=stripboard
 
+## ----- Custom sketch include -----
+calunium_atmega644p.menu.sketchinclude.none=None
+
+calunium_atmega644p.menu.sketchinclude.custominclude=custom_include.h
+calunium_atmega644p.menu.sketchinclude.custominclude.compiler.c.extra_flags=-include {build.source.path}/custom_include.h
+calunium_atmega644p.menu.sketchinclude.custominclude.compiler.cpp.extra_flags=-include {build.source.path}/custom_include.h
