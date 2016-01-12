@@ -36,34 +36,34 @@ calunium_atmega1284p.bootloader.lock_bits=0x0F
 
 # ----- Speed -----
 # 8MHz RC oscillator
-calunium_atmega1284p.menu.speed.eightrc=8MHz (RC osc. 38400 baud upload)
-calunium_atmega1284p.menu.speed.eightrc.build.f_cpu=8000000L
-calunium_atmega1284p.menu.speed.eightrc.bootloader.file=xboot/calunium_ATmega1284P_8MHz_RC.hex
-calunium_atmega1284p.menu.speed.eightrc.bootloader.low_fuses=0xC2
-calunium_atmega1284p.menu.speed.eightrc.bootloader.high_fuses=0x92
-calunium_atmega1284p.menu.speed.eightrc.bootloader.extended_fuses=0xFD
-calunium_atmega1284p.menu.speed.eightrc.upload.speed=38400
+calunium_atmega1284p.menu.speed.8MHz_RC=8MHz (RC osc. 38400 baud upload)
+calunium_atmega1284p.menu.speed.8MHz_RC.build.f_cpu=8000000L
+calunium_atmega1284p.menu.speed.8MHz_RC.bootloader.file=xboot/calunium_ATmega1284P_8MHz_RC.hex
+calunium_atmega1284p.menu.speed.8MHz_RC.bootloader.low_fuses=0xC2
+calunium_atmega1284p.menu.speed.8MHz_RC.bootloader.high_fuses=0x92
+calunium_atmega1284p.menu.speed.8MHz_RC.bootloader.extended_fuses=0xFD
+calunium_atmega1284p.menu.speed.8MHz_RC.upload.speed=38400
 
 # 8MHz crystal
-calunium_atmega1284p.menu.speed.eight=8MHz (38400 baud upload)
-calunium_atmega1284p.menu.speed.eight.build.f_cpu=8000000L
-calunium_atmega1284p.menu.speed.eight.bootloader.file=xboot/calunium_ATmega1284P_8MHz.hex
-calunium_atmega1284p.menu.speed.eight.upload.speed=38400
+calunium_atmega1284p.menu.speed.8MHz=8MHz (38400 baud upload)
+calunium_atmega1284p.menu.speed.8MHz.build.f_cpu=8000000L
+calunium_atmega1284p.menu.speed.8MHz.bootloader.file=xboot/calunium_ATmega1284P_8MHz.hex
+calunium_atmega1284p.menu.speed.8MHz.upload.speed=38400
 
 # 12MHz crystal
-calunium_atmega1284p.menu.speed.twelve=12MHz (115200 baud upload)
-calunium_atmega1284p.menu.speed.twelve.build.f_cpu=12000000L
-calunium_atmega1284p.menu.speed.twelve.bootloader.file=xboot/calunium_ATmega1284P_12MHz.hex
+calunium_atmega1284p.menu.speed.12MHz=12MHz (115200 baud upload)
+calunium_atmega1284p.menu.speed.12MHz.build.f_cpu=12000000L
+calunium_atmega1284p.menu.speed.12MHz.bootloader.file=xboot/calunium_ATmega1284P_12MHz.hex
 
 # 16MHz crystal
-calunium_atmega1284p.menu.speed.sixteen=16MHz (115200 baud upload)
-calunium_atmega1284p.menu.speed.sixteen.build.f_cpu=16000000L
-calunium_atmega1284p.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega1284P_16MHz.hex
+calunium_atmega1284p.menu.speed.16MHz=16MHz (115200 baud upload)
+calunium_atmega1284p.menu.speed.16MHz.build.f_cpu=16000000L
+calunium_atmega1284p.menu.speed.16MHz.bootloader.file=xboot/calunium_ATmega1284P_16MHz.hex
 
 # 20MHz crystal
-calunium_atmega1284p.menu.speed.twenty=20MHz (115200 baud upload)
-calunium_atmega1284p.menu.speed.twenty.build.f_cpu=20000000L
-calunium_atmega1284p.menu.speed.twenty.bootloader.file=xboot/calunium_ATmega1284P_20MHz.hex
+calunium_atmega1284p.menu.speed.20MHz=20MHz (115200 baud upload)
+calunium_atmega1284p.menu.speed.20MHz.build.f_cpu=20000000L
+calunium_atmega1284p.menu.speed.20MHz.bootloader.file=xboot/calunium_ATmega1284P_20MHz.hex
 
 # ----- Variant -----
 # PCB variant
@@ -100,34 +100,34 @@ calunium_atmega1284.bootloader.lock_bits=0x0F
 
 # ----- Speed -----
 # 8MHz RC oscillator
-calunium_atmega1284.menu.speed.eightrc=8MHz (RC osc. 38400 baud upload)
-calunium_atmega1284.menu.speed.eightrc.build.f_cpu=8000000L
-calunium_atmega1284.menu.speed.eightrc.bootloader.file=xboot/calunium_ATmega1284_8MHz_RC.hex
-calunium_atmega1284.menu.speed.eightrc.bootloader.low_fuses=0xC2
-calunium_atmega1284.menu.speed.eightrc.bootloader.high_fuses=0x92
-calunium_atmega1284.menu.speed.eightrc.bootloader.extended_fuses=0xFD
-calunium_atmega1284.menu.speed.eightrc.upload.speed=38400
+calunium_atmega1284.menu.speed.8MHz_RC=8MHz (RC osc. 38400 baud upload)
+calunium_atmega1284.menu.speed.8MHz_RC.build.f_cpu=8000000L
+calunium_atmega1284.menu.speed.8MHz_RC.bootloader.file=xboot/calunium_ATmega1284_8MHz_RC.hex
+calunium_atmega1284.menu.speed.8MHz_RC.bootloader.low_fuses=0xC2
+calunium_atmega1284.menu.speed.8MHz_RC.bootloader.high_fuses=0x92
+calunium_atmega1284.menu.speed.8MHz_RC.bootloader.extended_fuses=0xFD
+calunium_atmega1284.menu.speed.8MHz_RC.upload.speed=38400
 
 # 8MHz crystal
-calunium_atmega1284.menu.speed.eight=8MHz (38400 baud upload)
-calunium_atmega1284.menu.speed.eight.build.f_cpu=8000000L
-calunium_atmega1284.menu.speed.eight.bootloader.file=xboot/calunium_ATmega1284_8MHz.hex
-calunium_atmega1284.menu.speed.eight.upload.speed=38400
+calunium_atmega1284.menu.speed.8MHz=8MHz (38400 baud upload)
+calunium_atmega1284.menu.speed.8MHz.build.f_cpu=8000000L
+calunium_atmega1284.menu.speed.8MHz.bootloader.file=xboot/calunium_ATmega1284_8MHz.hex
+calunium_atmega1284.menu.speed.8MHz.upload.speed=38400
 
 # 12MHz crystal
-calunium_atmega1284.menu.speed.twelve=12MHz (115200 baud upload)
-calunium_atmega1284.menu.speed.twelve.build.f_cpu=12000000L
-calunium_atmega1284.menu.speed.twelve.bootloader.file=xboot/calunium_ATmega1284_12MHz.hex
+calunium_atmega1284.menu.speed.12MHz=12MHz (115200 baud upload)
+calunium_atmega1284.menu.speed.12MHz.build.f_cpu=12000000L
+calunium_atmega1284.menu.speed.12MHz.bootloader.file=xboot/calunium_ATmega1284_12MHz.hex
 
 # 16MHz crystal
-calunium_atmega1284.menu.speed.sixteen=16MHz (115200 baud upload)
-calunium_atmega1284.menu.speed.sixteen.build.f_cpu=16000000L
-calunium_atmega1284.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega1284_16MHz.hex
+calunium_atmega1284.menu.speed.16MHz=16MHz (115200 baud upload)
+calunium_atmega1284.menu.speed.16MHz.build.f_cpu=16000000L
+calunium_atmega1284.menu.speed.16MHz.bootloader.file=xboot/calunium_ATmega1284_16MHz.hex
 
 # 20MHz crystal
-calunium_atmega1284.menu.speed.twenty=20MHz (115200 baud upload)
-calunium_atmega1284.menu.speed.twenty.build.f_cpu=20000000L
-calunium_atmega1284.menu.speed.twenty.bootloader.file=xboot/calunium_ATmega1284_20MHz.hex
+calunium_atmega1284.menu.speed.20MHz=20MHz (115200 baud upload)
+calunium_atmega1284.menu.speed.20MHz.build.f_cpu=20000000L
+calunium_atmega1284.menu.speed.20MHz.bootloader.file=xboot/calunium_ATmega1284_20MHz.hex
 
 # ----- Variant -----
 # PCB variant
@@ -164,34 +164,34 @@ calunium_atmega644p.bootloader.lock_bits=0x0F
 
 # ----- Speed -----
 # 8MHz RC oscillator
-calunium_atmega644p.menu.speed.eightrc=8MHz (RC osc. 38400 baud upload)
-calunium_atmega644p.menu.speed.eightrc.build.f_cpu=8000000L
-calunium_atmega644p.menu.speed.eightrc.bootloader.file=xboot/calunium_ATmega644P_8MHz_RC.hex
-calunium_atmega644p.menu.speed.eightrc.bootloader.low_fuses=0xC2
-calunium_atmega644p.menu.speed.eightrc.bootloader.high_fuses=0x92
-calunium_atmega644p.menu.speed.eightrc.bootloader.extended_fuses=0xFD
-calunium_atmega644p.menu.speed.eightrc.upload.speed=38400
+calunium_atmega644p.menu.speed.8MHz_RC=8MHz (RC osc. 38400 baud upload)
+calunium_atmega644p.menu.speed.8MHz_RC.build.f_cpu=8000000L
+calunium_atmega644p.menu.speed.8MHz_RC.bootloader.file=xboot/calunium_ATmega644P_8MHz_RC.hex
+calunium_atmega644p.menu.speed.8MHz_RC.bootloader.low_fuses=0xC2
+calunium_atmega644p.menu.speed.8MHz_RC.bootloader.high_fuses=0x92
+calunium_atmega644p.menu.speed.8MHz_RC.bootloader.extended_fuses=0xFD
+calunium_atmega644p.menu.speed.8MHz_RC.upload.speed=38400
 
 # 8MHz crystal
-calunium_atmega644p.menu.speed.eight=8MHz (38400 baud upload)
-calunium_atmega644p.menu.speed.eight.build.f_cpu=8000000L
-calunium_atmega644p.menu.speed.eight.bootloader.file=xboot/calunium_ATmega644P_8MHz.hex
-calunium_atmega644p.menu.speed.eight.upload.speed=38400
+calunium_atmega644p.menu.speed.8MHz=8MHz (38400 baud upload)
+calunium_atmega644p.menu.speed.8MHz.build.f_cpu=8000000L
+calunium_atmega644p.menu.speed.8MHz.bootloader.file=xboot/calunium_ATmega644P_8MHz.hex
+calunium_atmega644p.menu.speed.8MHz.upload.speed=38400
 
 # 12MHz crystal
-calunium_atmega644p.menu.speed.twelve=12MHz (115200 baud upload)
-calunium_atmega644p.menu.speed.twelve.build.f_cpu=12000000L
-calunium_atmega644p.menu.speed.twelve.bootloader.file=xboot/calunium_ATmega644P_12MHz.hex
+calunium_atmega644p.menu.speed.12MHz=12MHz (115200 baud upload)
+calunium_atmega644p.menu.speed.12MHz.build.f_cpu=12000000L
+calunium_atmega644p.menu.speed.12MHz.bootloader.file=xboot/calunium_ATmega644P_12MHz.hex
 
 # 16MHz crystal
-calunium_atmega644p.menu.speed.sixteen=16MHz (115200 baud upload)
-calunium_atmega644p.menu.speed.sixteen.build.f_cpu=16000000L
-calunium_atmega644p.menu.speed.sixteen.bootloader.file=xboot/calunium_ATmega644P_16MHz.hex
+calunium_atmega644p.menu.speed.16MHz=16MHz (115200 baud upload)
+calunium_atmega644p.menu.speed.16MHz.build.f_cpu=16000000L
+calunium_atmega644p.menu.speed.16MHz.bootloader.file=xboot/calunium_ATmega644P_16MHz.hex
 
 # 20MHz crystal
-calunium_atmega644p.menu.speed.twenty=20MHz (115200 baud upload)
-calunium_atmega644p.menu.speed.twenty.build.f_cpu=20000000L
-calunium_atmega644p.menu.speed.twenty.bootloader.file=xboot/calunium_ATmega644P_20MHz.hex
+calunium_atmega644p.menu.speed.20MHz=20MHz (115200 baud upload)
+calunium_atmega644p.menu.speed.20MHz.build.f_cpu=20000000L
+calunium_atmega644p.menu.speed.20MHz.bootloader.file=xboot/calunium_ATmega644P_20MHz.hex
 
 # ----- Variant -----
 # PCB variant
