@@ -6,3 +6,7 @@ dragonjtag.name=AVR Dragon (JTAG)
 dragonjtag.communication=usb
 dragonjtag.protocol=dragon_jtag
 
+dragonjtagforce.name=AVR Dragon (JTAG, with force (-F) option)
+dragonjtagforce.communication=usb
+dragonjtagforce.protocol=dragon_jtag
+dragonjtagforce.extra_params=-F
